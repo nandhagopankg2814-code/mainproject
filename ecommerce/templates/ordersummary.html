@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Order Summary</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active">Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+<div class="bg-success text-danger p-5 w-50">
+<h1>{{orders}}</h1>
+{% for i in orders %}
+    {% for j in i.products.all %}
+        {{j.product.name}}
+    <img src="{{j.product.image.url}}"
+    {% endfor %}
+{% endfor %}
+</div>
+
+{% endblock %}
